@@ -6,6 +6,25 @@
   <title>Book App</title>
 </head>
 <body>
-  <h1>Hello World!</h1>
+  <header>
+    <h1>Books App</h1>
+  </header>
+  <main>
+    <section class="book-view container">
+      <h3>My Books</h3>
+      <p id="book-count">Number of books: </p>
+      <ul id="book-list">List of books:</ul>
+    </section>
+    <section class="about-view container">
+      <h3>About</h3>
+      <p>This is our book app, displaying information about the list of books in our database.</p>
+    </section>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.17/marked.min.js"></script>
+  <script src="scripts/models/book.js"></script>
+  <script src="scripts/views/book-view.js"></script>
+  <script src="scripts/views/error-view.js"></script>
 </body>
 </html>
