@@ -2,9 +2,8 @@
 
 var app = app || {};
 
-var bookView = {};
-
 (module => {
+  const bookView = {};
 
   bookView.initIndexPage = () => {
     $('.container').hide();
