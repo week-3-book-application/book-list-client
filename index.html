@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book App</title>
+
+  <script type="text/x-handlebars-template" id="error-template">
+    <p>{{status}}: {{statusText}}</p>
+  </script>
+
+  <script type="text/x-handlebars-template" id="book-list-template">
+  <img src="{{image_url}}">
+  <h4>{{title}}</h4>
+  <p>{{author}}</p>
+  <p>{{description}}</p>
+  <p>{{isbn}}</p>
+  </script>
 </head>
 <body>
   <header>
