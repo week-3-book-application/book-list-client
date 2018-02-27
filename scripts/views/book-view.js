@@ -17,5 +17,5 @@ var app = app || {};
 
 
 $(function () {
-  app.Book.fetchAll(bookView.initIndexPage);
+  app.Book.fetchAll(app.bookView.initIndexPage);
 });

@@ -1,11 +1,16 @@
 'use strict';
 
-var app = {};
+var app = app || {};
 
-// var __API_URL__ = 'http://localhost:3000';
-var __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
+const __API_URL__ = 'http://localhost:3000';
+// var __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
 
 (module => {
+  function throwErr(err) {
+    console.error(err);
+    app.errorView.initErrorPage();
+  }
+
   Book.all = [];
 
   function Book(bookObj) {
@@ -26,13 +31,17 @@ var __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
     return template(this);
   };
 
-  // Book.loadAll = (rows) =>
+  Book.loadAll = rows => {
+    console.log(rows);
+    Book.all = rows.sort((a,b) => b.title - a.title).map(book => new Book(book));
+  };
 
 
-  Book.fetchAll = callback =>
+  Book.fetchAll = (callback) =>
     $.get(`${__API_URL__}/api/v1/books`)
-      .then(result => console.log(result));
-
+      .then(Book.loadAll)
+      .then(callback)
+      .catch(throwErr);
 
   console.log(book);
   module.Book = Book;
