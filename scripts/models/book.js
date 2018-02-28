@@ -18,14 +18,6 @@ const __API_URL__ = 'http://localhost:3000';
     Book.all.push(this);
   }
 
-  let book = new Book({
-    title: 'test',
-    author: 'kris',
-    isbn: '1111',
-    image_url: 'www.test.com',
-    description: 'test'
-  });
-
   Book.prototype.toHtml = function() {
     let template = Handlebars.compile($('#book-list-template').text());
     return template(this);
@@ -49,6 +41,10 @@ const __API_URL__ = 'http://localhost:3000';
       .then(callback)
       .catch(throwErr);
 
-  console.log(book);
+  Book.prototype.insertBook = () =>
+
+    $.post(`${__API_URL__}/api/v1/books/new`, {title: this.title, author: this.author, isbn: this.isbn, image_url: this.image_url, description: this.description})
+      .then(console.log('hi'));
+
   module.Book = Book;
 })(app);
