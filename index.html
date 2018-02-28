@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book App</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book App</title>
 
-  <script type="text/x-handlebars-template" id="error-template">
-    <p>{{status}}: {{statusText}}</p>
-  </script>
+    <script type="text/x-handlebars-template" id="error-template">
+      <p>{{status}}: {{statusText}}</p>
+    </script>
 
-  <script type="text/x-handlebars-template" id="book-list-template">
-    <img src="{{image_url}}">
-    <h4>{{title}}</h4>
-    <p>{{author}}</p>
-    <p>{{description}}</p>
-    <p>{{isbn}}</p>
-  </script>
-</head>
-<body>
-  <header>
-    <h1>Books App</h1>
-  </header>
-  <main>
-    <section class="book-view container">
-      <h3>My Books</h3>
-      <p id="book-count">Number of books: </p>
-      <ul id="book-list">List of books:</ul>
-    </section>
-    <section class="about-view container">
-      <h3>About</h3>
-      <p>This is our book app, displaying information about the list of books in our database.</p>
-    </section>
-    <section class="error-view container">
-      <section id="error-message"></section>
-    </section>
-  </main>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-  <script src="scripts/models/book.js"></script>
-  <script src="scripts/views/book-view.js"></script>
-  <script src="scripts/views/error-view.js"></script>
-</body>
+    <script type="text/x-handlebars-template" id="book-list-template">
+      <h3>{{title}}</h3>
+      <p>{{author}}</p>
+      <p>{{isbn}}</p>
+      <img src="{{image_url}}">
+      <p>{{description}}</p>
+      <p>----------------------------------</p>
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Books App</h1>
+    </header>
+    <main>
+      <section class="book-view container">
+        <h3>My Books</h3>
+        <p id="book-count">Number of books: </p>
+        <ul id="book-list">List of books:</ul>
+      </section>
+      <section class="about-view container">
+        <h3>About</h3>
+        <p>This is our book app, displaying information about the list of books in our database.</p>
+      </section>
+      <section class="error-view container">
+        <section id="error-message"></section>
+      </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/error-view.js"></script>
+  </body>
 </html>
