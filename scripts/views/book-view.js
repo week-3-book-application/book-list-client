@@ -13,12 +13,15 @@ var app = app || {};
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
   };
 
-  bookView.initSingleBookView = (ctx) => {
-    console.log(ctx);
+  bookView.initSingleBookView = ctx => {
+    $('.detail-view').empty();
     $('.container').hide();
     $('.detail-view').show();
-    // $('.detail-view').append(book.toHtml());
-  } 
+    let singleBook = app.Book.all.filter(book => book.book_id === ctx);
+    $('.detail-view').append(singleBook[0].toHtml());
+  };
+
+  bookView.initFormView = 
 
   module.bookView = bookView;
 })(app);
