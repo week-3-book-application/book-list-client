@@ -29,6 +29,23 @@
         <ul id="book-list">List of books:</ul>
       </section>
       <section class="detail-view container"></section>
+      <section class="form-view container">
+        <form>
+          <label>
+            <input type="text" id="book-title" placeholder="Title" required>
+          </label>
+          <label>
+            <input type="text" id="book-author" placeholder="Author" required>
+          </label>
+          <label>
+            <input type="text" id="book-isbn" placeholder="ISBN" required>
+          </label>
+          <label>
+            <input type="text" id="book-url" placeholder="Image URL" required>
+          </label>
+          <textarea id="book-description" rows="8" cols="40" placeholder="Description" required></textarea>
+        </form>
+      </section>
       <section class="about-view container">
         <h3>About</h3>
         <p>This is our book app, displaying information about the list of books in our database.</p>
@@ -43,5 +60,6 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
   </body>
 </html>

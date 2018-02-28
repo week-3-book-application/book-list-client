@@ -43,8 +43,8 @@ const __API_URL__ = 'http://localhost:3000';
       .then(callback)
       .catch(throwErr);
 
-  Book.fetchOne = callback =>
-    $.get(`${__API_URL__}/api/v1/books/${this.book_id}`)
+  Book.fetchOne = (book_id, callback) =>
+    $.get(`${__API_URL__}/api/v1/books/${book_id}`)
       .then(Book.loadAll)
       .then(callback)
       .catch(throwErr);
