@@ -5,7 +5,8 @@ var app = app || {};
 (module => {
   const errorView = {};
 
-  errorView.initErrorPage = (err) => {
+  errorView.initErrorPage = err => {
+    console.log(err);
     $('.container').hide();
     $('.error-view').show();
     $('#error-message').empty();

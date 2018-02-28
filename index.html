@@ -6,7 +6,7 @@
     <title>Book App</title>
 
     <script type="text/x-handlebars-template" id="error-template">
-      <p>{{status}}: {{statusText}}</p>
+      <p>{{err.statusText}}: {{err.status}}</p>
     </script>
 
     <script type="text/x-handlebars-template" id="book-list-template">
@@ -28,6 +28,7 @@
         <p id="book-count">Number of books: </p>
         <ul id="book-list">List of books:</ul>
       </section>
+      <section class="detail-view container"></section>
       <section class="about-view container">
         <h3>About</h3>
         <p>This is our book app, displaying information about the list of books in our database.</p>
@@ -38,6 +39,7 @@
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>

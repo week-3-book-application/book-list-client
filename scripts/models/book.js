@@ -3,7 +3,7 @@
 var app = app || {};
 
 const __API_URL__ = 'http://localhost:3000';
-// var __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
+// const __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
 
 (module => {
   function throwErr(err) {
@@ -37,8 +37,14 @@ const __API_URL__ = 'http://localhost:3000';
   };
 
 
-  Book.fetchAll = (callback) =>
+  Book.fetchAll = callback =>
     $.get(`${__API_URL__}/api/v1/books`)
+      .then(Book.loadAll)
+      .then(callback)
+      .catch(throwErr);
+
+  Book.fetchOne = callback =>
+    $.get(`${__API_URL__}/api/v1/books/${this.book_id}`)
       .then(Book.loadAll)
       .then(callback)
       .catch(throwErr);
