@@ -1,0 +1,45 @@
+body {
+  width: 480px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #AED19E;
+}
+
+h1 {
+  font-family: 'Playfair Display SC', serif;
+}
+
+h3 {
+  padding-top: 5%;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 5%;
+}
+
+img {
+  margin-top: 5%;
+  border: 10px ridge antiquewhite;
+}
+
+h2 {
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+h3, p {
+  margin: 1%;
+}
+
+.detail-link {
+  margin-top: 5%;
+}
+
+form button {
+  display: block;
+}
