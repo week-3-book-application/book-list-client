@@ -15,7 +15,7 @@ const __API_URL__ = 'http://localhost:3000';
 
   function Book(bookObj) {
     Object.keys(bookObj).forEach(key => this[key] = bookObj[key]);
-    Book.all.push(this);
+    // Book.all.push(this);
   }
 
   Book.prototype.toHtml = function() {
@@ -35,16 +35,17 @@ const __API_URL__ = 'http://localhost:3000';
       .then(callback)
       .catch(throwErr);
 
-  Book.fetchOne = (book_id, callback) =>
-    $.get(`${__API_URL__}/api/v1/books/${book_id}`)
-      .then(Book.loadAll)
+  Book.fetchOne = (ctx, callback) =>
+    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+      // .then(Book.loadAll)
+      .then(results => ctx.book = results[0])
       .then(callback)
       .catch(throwErr);
 
   Book.insertBook = (book) =>
-
     $.post(`${__API_URL__}/api/v1/books/new`, book)
-      .then(console.log('hi'));
+      .then(() => page('/'))
+      .catch(throwErr);
 
   module.Book = Book;
 })(app);

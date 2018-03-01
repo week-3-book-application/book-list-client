@@ -13,12 +13,14 @@ var app = app || {};
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
   };
 
-  bookView.initSingleBookView = ctx => {
+  bookView.initSingleBookView = (ctx) => {
     $('.detail-view').empty();
     $('.container').hide();
     $('.detail-view').show();
-    let singleBook = app.Book.all.filter(book => book.book_id === ctx);
-    $('.detail-view').append(singleBook[0].toHtml());
+    // let singleBook = app.Book.all.filter(book => book.book_id === ctx);
+    let template = Handlebars.compile($('#book-detail-template').text());
+    $('.detail-view').append(template(ctx));
+    
   };
 
   bookView.initFormView = () => {
@@ -38,7 +40,7 @@ var app = app || {};
     });
     module.Book.insertBook(book);
 
-    // window.location = '../';
+    window.location = '../';
   };
 
 
