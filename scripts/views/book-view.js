@@ -6,11 +6,17 @@ var app = app || {};
   const bookView = {};
 
   bookView.initIndexPage = () => {
+    console.log('hello');
+
     $('.container').hide();
+    $('#book-list').empty();
+    $('#book-count').empty();
     $('.book-view').show();
     $('.about-view').show();
-    $('#book-count').append(app.Book.all.length);
+    $('#book-count').append(`Total: ${app.Book.all.length}`);
+    bookView.handleMainNav();
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    
   };
 
   bookView.initSingleBookView = (ctx) => {
@@ -41,6 +47,13 @@ var app = app || {};
     module.Book.insertBook(book);
 
     window.location = '../';
+  };
+
+  bookView.handleMainNav = () => {
+    $('.main-nav').on('click', function() {
+
+      $('li').css('display', 'block');
+    });
   };
 
 
