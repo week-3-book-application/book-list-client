@@ -28,7 +28,28 @@
         <p>{{author}}</p>
         <p>{{isbn}}</p>
         <p>{{description}}</p>
+        <a data-id={{book_id}} id="update" href="/books/{{book_id}}/update">Update</a>
+        <a data-id={{book_id}} id="delete" href="/books/delete">Delete</a>
     </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="form-template">
+      <form id="update-form">
+        <label>
+          <input type="text" id="update-title" placeholder="{{title}}" required>
+        </label>
+        <label>
+          <input type="text" id="update-author" placeholder="{{author}}" required>
+        </label>
+        <label>
+          <input type="text" id="update-isbn" placeholder="{{isbn}}" required>
+        </label>
+        <label>
+          <input type="text" id="update-url" placeholder="{{image_url}}" required>
+        </label>
+        <textarea id="update-description" rows="8" cols="40" placeholder="{{description}}" required></textarea>
+        <button type="submit" id="update-button">Update Book</button>
+      </form>
     </script>
     <link href="styles/normalize.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/icons.css">
@@ -39,8 +60,6 @@
   </head>
   <body>
     <header>
-
-
       <nav class="main-nav">
         <div class="icon-menu"></div>
           <ul>
@@ -74,9 +93,10 @@
             <input type="text" id="book-url" placeholder="Image URL" required>
           </label>
           <textarea id="book-description" rows="8" cols="40" placeholder="Description" required></textarea>
-          <button type="submit">Submit Book</button>
+          <button type="submit" id="form-button">Submit Book</button>
         </form>
       </section>
+      <section class="update-form container"></section>
       <section class="about-view container">
         <h3>About</h3>
         <p>This is our book app, displaying information about the list of books in our database.</p>

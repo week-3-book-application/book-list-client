@@ -47,5 +47,16 @@ const __API_URL__ = 'http://localhost:3000';
       .then(() => page('/'))
       .catch(throwErr);
 
+  Book.updateBook = (book) => {
+    console.log(book);
+    $.ajax({
+      url: `${__API_URL__}/api/v1/book-${book.book_id}/update`,
+      method: 'PUT',
+      data: book
+    })
+      .then(() => page('/'))
+      .catch(throwErr);
+  };
+
   module.Book = Book;
 })(app);
