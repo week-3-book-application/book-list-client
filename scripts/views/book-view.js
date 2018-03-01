@@ -36,7 +36,7 @@ var app = app || {};
       image_url: $('#book-url').val(),
       description: $('#book-description').val()
     });
-    book.insertBook();
+    module.Book.insertBook(book);
 
     // window.location = '../';
   };
