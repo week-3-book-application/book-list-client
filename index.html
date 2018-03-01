@@ -31,6 +31,7 @@
     </div>
     </script>
     <link href="styles/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/icons.css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     <link href="styles/base.css" rel="stylesheet">
     <link href="styles/layout.css" rel="stylesheet">
@@ -38,14 +39,22 @@
   </head>
   <body>
     <header>
+
+
+      <nav class="main-nav">
+        <div class="icon-menu"></div>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/books/new">Add New Book</a></li>
+          </ul>
+      </nav>
       <h1>Book Collection</h1>
-      <p><a href="/books/new">Add New Book</a></p>
     </header>
     <main>
       <section class="book-view container">
         <div id="book-list-header">
           <h3>My Book List</h3>
-          <p id="book-count">Total: </p>
+          <p id="book-count"></p>
         </div>
         <ul id="book-list"></ul>
       </section>
