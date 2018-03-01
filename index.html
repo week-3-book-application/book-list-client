@@ -10,11 +10,13 @@
     </script>
 
     <script type="text/x-handlebars-template" id="book-list-template">
-      <div class="book-template-container">
-      <img src="{{image_url}}">
-      <h3>{{title}}</h3>
-      <p>{{author}}</p>
-      <p class="detail-link"><a href="/books/{{book_id}}">View Details</a></p>
+      <li>
+        <div class="book-template-container">
+        <img src="{{image_url}}">
+        <h2>{{title}}</h2>
+        <p>{{author}}</p>
+        <p class="detail-link"><a href="/books/{{book_id}}">View Details</a></p>
+      </li>
       <p>----------------------------------</p>
     </div>
     </script>
@@ -28,17 +30,24 @@
         <p>{{description}}</p>
     </div>
     </script>
+    <link href="styles/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+    <link href="styles/base.css" rel="stylesheet">
+    <link href="styles/layout.css" rel="stylesheet">
+    <link href="styles/modules.css" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>Books App</h1>
-      <p><a href="/books/new">New Book Entry</a></p>
+      <h1>Book Collection</h1>
+      <p><a href="/books/new">Add New Book</a></p>
     </header>
     <main>
       <section class="book-view container">
-        <h3>My Books</h3>
-        <p id="book-count">Number of books: </p>
-        <ul id="book-list">List of books:</ul>
+        <div id="book-list-header">
+          <h3>My Book List</h3>
+          <p id="book-count">Total: </p>
+        </div>
+        <ul id="book-list"></ul>
       </section>
       <section class="detail-view container"></section>
       <section class="form-view container">
