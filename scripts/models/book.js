@@ -41,9 +41,9 @@ const __API_URL__ = 'http://localhost:3000';
       .then(callback)
       .catch(throwErr);
 
-  Book.prototype.insertBook = () =>
+  Book.insertBook = (book) =>
 
-    $.post(`${__API_URL__}/api/v1/books/new`, {title: this.title, author: this.author, isbn: this.isbn, image_url: this.image_url, description: this.description})
+    $.post(`${__API_URL__}/api/v1/books/new`, book)
       .then(console.log('hi'));
 
   module.Book = Book;
