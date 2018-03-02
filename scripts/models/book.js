@@ -2,8 +2,8 @@
 
 var app = app || {};
 
-const __API_URL__ = 'http://localhost:3000';
-// const __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
+// const __API_URL__ = 'http://localhost:3000';
+const __API_URL__ = 'https://git.heroku.com/co-ks-booklist.git';
 
 (module => {
   function throwErr(err) {
