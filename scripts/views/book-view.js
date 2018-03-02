@@ -6,8 +6,6 @@ var app = app || {};
   const bookView = {};
 
   bookView.initIndexPage = () => {
-    console.log('hello');
-
     $('.container').hide();
     $('#book-list').empty();
     $('#book-count').empty();
@@ -60,19 +58,27 @@ var app = app || {};
       image_url: $('#book-url').val(),
       description: $('#book-description').val()
     });
-    console.log(book);
     module.Book.updateBook(book);
   };
 
-  bookView.handleDelete = (ctx) => {
-    console.log(ctx);
+  bookView.initDeleteForm = (ctx) => {
     $('.detail-view').empty();
     $('.delete-book').empty();
     $('.container').hide();
     let template = Handlebars.compile($('#delete-template').text());
     $('.delete-book').fadeIn(750);
     $('.delete-book').append(template(ctx));
+    $('#delete-yes').attr('book_id', ctx.book_id);
+    $('#delete-yes').on('submit', bookView.handleDelete);
   };
+
+  bookView.handleDelete = event => {
+    event.preventDefault();
+    console.log(event);
+    let id = $('#delete-yes').attr('book_id');
+    module.Book.deleteBook(id);
+  };
+
 
   bookView.submit = event => {
     event.preventDefault();

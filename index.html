@@ -23,8 +23,9 @@
 
     <script type="text/x-handlebars-template" id="delete-template">
       <h3>Are you sure you want to delete {{title}}?</h3>
-      <a id="delete-yes" href="/">Yes</a>
-      <a id="delete-no" href="/books/{{book_id}}">No</a>
+      <form id="delete-yes">
+        <button id="delete-button">Yes</button>
+      </form>
     </script>
 
     <script type="text/x-handlebars-template" id="book-detail-template">
@@ -104,18 +105,17 @@
       </section>
       <section class="update-form container"></section>
       <section class="delete-book container"></section>
-      <section class="deleted container">
-        <h1>Book Deleted</h1>
-        <a href="/">Back to Home</a>
-      </section>
       <section class="about-view container">
         <h3>About</h3>
-        <p>This is our book app, displaying information about the list of books in our database.</p>
+        <p>This app allows the user to keep track of a list of books.</p>
       </section>
       <section class="error-view container">
         <section id="error-message"></section>
       </section>
     </main>
+    <footer>
+      <p>&copy 2018 - Carl Olson and Kris Sakarias</p>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
