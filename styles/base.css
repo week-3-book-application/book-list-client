@@ -1,0 +1,10 @@
+body {
+  width: 480px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #AED19E;
+}
+
+h1 {
+  font-family: 'Playfair Display SC', serif;
+}

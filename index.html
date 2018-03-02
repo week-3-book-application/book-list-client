@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book App</title>
-</head>
-<body>
-  <h1>Hello World!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book App</title>
+
+    <script type="text/x-handlebars-template" id="error-template">
+      <p>{{status}}: {{statusText}}</p>
+    </script>
+
+    <script type="text/x-handlebars-template" id="book-list-template">
+      <li>
+        <div class="book-template-container">
+        <img src="{{image_url}}">
+        <h2>{{title}}</h2>
+        <p>{{author}}</p>
+        <p class="detail-link"><a href="/books/{{book_id}}">View Details</a></p>
+      </li>
+      <p>----------------------------------</p>
+    </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="delete-template">
+      <h3>Are you sure you want to delete {{title}}?</h3>
+      <form id="delete-yes">
+        <button id="delete-button">Yes</button>
+      </form>
+    </script>
+
+    <script type="text/x-handlebars-template" id="book-detail-template">
+      <div class="detail-template-container">
+        <img src="{{image_url}}">
+        <h3>{{title}}</h3>
+        <p>{{author}}</p>
+        <p>{{isbn}}</p>
+        <p>{{description}}</p>
+        <a data-id={{book_id}} id="update" href="/books/{{book_id}}/update">Update</a>
+        <a data-id={{book_id}} id="delete" href="/books/{{book_id}}/delete">Delete</a>
+    </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="form-template">
+      <form id="update-form">
+        <label>
+          <input type="text" id="update-title" placeholder="{{title}}" required>
+        </label>
+        <label>
+          <input type="text" id="update-author" placeholder="{{author}}" required>
+        </label>
+        <label>
+          <input type="text" id="update-isbn" placeholder="{{isbn}}" required>
+        </label>
+        <label>
+          <input type="text" id="update-url" placeholder="{{image_url}}" required>
+        </label>
+        <textarea id="update-description" rows="8" cols="40" placeholder="{{description}}" required></textarea>
+        <button type="submit" id="update-button">Update Book</button>
+      </form>
+    </script>
+    <link href="styles/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+    <link href="styles/base.css" rel="stylesheet">
+    <link href="styles/layout.css" rel="stylesheet">
+    <link href="styles/modules.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav">
+        <div class="icon-menu"></div>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/books/new">Add New Book</a></li>
+          </ul>
+      </nav>
+      <h1>Book Collection</h1>
+    </header>
+    <main>
+      <section class="book-view container">
+        <div id="book-list-header">
+          <h3>My Book List</h3>
+          <p id="book-count"></p>
+        </div>
+        <ul id="book-list"></ul>
+      </section>
+      <section class="detail-view container"></section>
+      <section class="form-view container">
+        <form id="new-book-form">
+          <label>
+            <input type="text" id="book-title" placeholder="Title" required>
+          </label>
+          <label>
+            <input type="text" id="book-author" placeholder="Author" required>
+          </label>
+          <label>
+            <input type="text" id="book-isbn" placeholder="ISBN" required>
+          </label>
+          <label>
+            <input type="text" id="book-url" placeholder="Image URL" required>
+          </label>
+          <textarea id="book-description" rows="8" cols="40" placeholder="Description" required></textarea>
+          <button type="submit" id="form-button">Submit Book</button>
+        </form>
+      </section>
+      <section class="update-form container"></section>
+      <section class="delete-book container"></section>
+      <section class="about-view container">
+        <h3>About</h3>
+        <p>This app allows the user to keep track of a list of books.</p>
+      </section>
+      <section class="error-view container">
+        <section id="error-message"></section>
+      </section>
+    </main>
+    <footer>
+      <p>&copy 2018 - Carl Olson and Kris Sakarias</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
+  </body>
 </html>
