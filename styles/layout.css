@@ -1,0 +1,86 @@
+h3 {
+  padding-top: 5%;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 5%;
+}
+
+img {
+  margin-top: 5%;
+  border: 5px ridge antiquewhite;
+}
+
+h2 {
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+h3, p {
+  margin: 1%;
+}
+
+.detail-link {
+  margin-top: 5%;
+}
+
+form button {
+  display: block;
+}
+
+header {
+  position: relative;
+}
+
+
+nav {
+  position: absolute;
+  right: 2%;
+  top: 20%;
+
+}
+
+nav li {
+  display: none;
+}
+
+label {
+  display: block;
+}
+
+input, textarea {
+  width: 80%;
+  margin: 5px auto;
+  border: 2px solid rgb(145, 145, 145);
+  border-radius: 2px;
+  padding-left: 20px;
+}
+
+button {
+  width: 25%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+input {
+  height: 40px;
+}
+
+textarea {
+  padding-top: 15px;
+}
+
+.icon-menu {
+  font-size: 200%;
+}
+
+footer {
+  border-top: 2px dashed black;
+  margin: 10%;
+  padding: 10%;
+}

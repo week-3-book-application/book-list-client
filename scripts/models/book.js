@@ -15,7 +15,6 @@ const __API_URL__ = 'http://localhost:3000';
 
   function Book(bookObj) {
     Object.keys(bookObj).forEach(key => this[key] = bookObj[key]);
-    // Book.all.push(this);
   }
 
   Book.prototype.toHtml = function() {
@@ -37,7 +36,6 @@ const __API_URL__ = 'http://localhost:3000';
 
   Book.fetchOne = (ctx, callback) =>
     $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
-      // .then(Book.loadAll)
       .then(results => ctx.book = results[0])
       .then(callback)
       .catch(throwErr);
@@ -46,6 +44,25 @@ const __API_URL__ = 'http://localhost:3000';
     $.post(`${__API_URL__}/api/v1/books/new`, book)
       .then(() => page('/'))
       .catch(throwErr);
+
+  Book.updateBook = (book) => {
+    $.ajax({
+      url: `${__API_URL__}/api/v1/book-${book.book_id}/update`,
+      method: 'PUT',
+      data: book
+    })
+      .then(() => page('/'))
+      .catch(throwErr);
+  };
+
+  Book.deleteBook = (id) => {
+    $.ajax({
+      url: `${__API_URL__}/api/v1/book/delete`,
+      method: 'DELETE',
+      data: {book_id : id}
+    })
+      .then(() => page('/'));
+  };
 
   module.Book = Book;
 })(app);
