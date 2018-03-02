@@ -15,7 +15,6 @@ const __API_URL__ = 'http://localhost:3000';
 
   function Book(bookObj) {
     Object.keys(bookObj).forEach(key => this[key] = bookObj[key]);
-    // Book.all.push(this);
   }
 
   Book.prototype.toHtml = function() {
@@ -57,6 +56,10 @@ const __API_URL__ = 'http://localhost:3000';
       .then(() => page('/'))
       .catch(throwErr);
   };
+
+  Book.deleteBook = (book) => {
+    console.log(book);
+  }
 
   module.Book = Book;
 })(app);

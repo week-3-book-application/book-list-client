@@ -21,6 +21,12 @@
     </div>
     </script>
 
+    <script type="text/x-handlebars-template" id="delete-template">
+      <h3>Are you sure you want to delete {{title}}?</h3>
+      <a id="delete-yes" href="/">Yes</a>
+      <a id="delete-no" href="/books/{{book_id}}">No</a>
+    </script>
+
     <script type="text/x-handlebars-template" id="book-detail-template">
       <div class="detail-template-container">
         <img src="{{image_url}}">
@@ -29,7 +35,7 @@
         <p>{{isbn}}</p>
         <p>{{description}}</p>
         <a data-id={{book_id}} id="update" href="/books/{{book_id}}/update">Update</a>
-        <a data-id={{book_id}} id="delete" href="/books/delete">Delete</a>
+        <a data-id={{book_id}} id="delete" href="/books/{{book_id}}/delete">Delete</a>
     </div>
     </script>
 
@@ -97,6 +103,11 @@
         </form>
       </section>
       <section class="update-form container"></section>
+      <section class="delete-book container"></section>
+      <section class="deleted container">
+        <h1>Book Deleted</h1>
+        <a href="/">Back to Home</a>
+      </section>
       <section class="about-view container">
         <h3>About</h3>
         <p>This is our book app, displaying information about the list of books in our database.</p>

@@ -46,22 +46,32 @@ var app = app || {};
     $('#book-isbn').val(ctx.isbn);
     $('#book-url').val(ctx.image_url);
     $('#book-description').val(ctx.description);
-
-    $('#form-button').on('submit', bookView.handleUpdateForm);
+    $('#new-book-form').attr('book_id', ctx.book_id);
+    $('#new-book-form').on('submit', bookView.handleUpdateForm);
   };
 
-  bookView.handleUpdateForm = (event) => {
+  bookView.handleUpdateForm = event => {
     event.preventDefault();
-    console.log('event=' + event);
     let book = new app.Book({
+      book_id: $('#new-book-form').attr('book_id'),
       title: $('#book-title').val(),
       author: $('#book-author').val(),
       isbn: $('#book-isbn').val(),
       image_url: $('#book-url').val(),
       description: $('#book-description').val()
     });
-    console.log('book=' + book);
+    console.log(book);
     module.Book.updateBook(book);
+  };
+
+  bookView.handleDelete = (ctx) => {
+    console.log(ctx);
+    $('.detail-view').empty();
+    $('.delete-book').empty();
+    $('.container').hide();
+    let template = Handlebars.compile($('#delete-template').text());
+    $('.delete-book').fadeIn(750);
+    $('.delete-book').append(template(ctx));
   };
 
   bookView.submit = event => {
@@ -83,8 +93,6 @@ var app = app || {};
       $('li').css('display', 'block');
     });
   };
-
-
 
   module.bookView = bookView;
 })(app);
