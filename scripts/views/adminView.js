@@ -17,7 +17,7 @@ var app = app || {};
       let passcode = e.target.passcode.value;
 
       $.get(`${__API_URL__}/api/v1/admin`, {passcode})
-        .then(console.log());
+        .then(console.log);
     });
 
   };
