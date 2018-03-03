@@ -13,8 +13,7 @@ var app = app || {};
     $('.about-view').show();
     $('#book-count').append(`Total: ${app.Book.all.length}`);
     bookView.handleMainNav();
-    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
-    
+    app.Book.all.map(book => $('#book-list').append(book.toHtml()));   
   };
 
   bookView.initSingleBookView = (ctx) => {
@@ -23,9 +22,9 @@ var app = app || {};
     $('.detail-view').show();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('.detail-view').append(template(ctx));
-
-    // let update = bookView.initUpdateForm(ctx);
-    // $('#delete').on('submit', ...);
+    $('#update').hide();
+    $('#delete').hide();
+    $('#admin-button').on('click', app.adminView.initAdminPage);
   };
 
   bookView.initFormView = () => {

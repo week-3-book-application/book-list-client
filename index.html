@@ -35,9 +35,10 @@
         <p>{{author}}</p>
         <p>{{isbn}}</p>
         <p>{{description}}</p>
+      </div>
+        <button id="admin-button">Admin</button>
         <a data-id={{book_id}} id="update" href="/books/{{book_id}}/update">Update</a>
         <a data-id={{book_id}} id="delete" href="/books/{{book_id}}/delete">Delete</a>
-    </div>
     </script>
 
     <script type="text/x-handlebars-template" id="form-template">
@@ -105,6 +106,15 @@
       </section>
       <section class="update-form container"></section>
       <section class="delete-book container"></section>
+
+      <section class="admin-view container">
+        <h2>Verify Password</h2>
+        <form id="admin-form">
+          <input type"number" name="passcode" placeholder="1234">
+          <button type="submit">Verify</button>
+        </form>
+      </section>
+
       <section class="about-view container">
         <h3>About</h3>
         <p>This app allows the user to keep track of a list of books.</p>
@@ -121,6 +131,7 @@
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/adminView.js"></script>
     <script src="scripts/views/error-view.js"></script>
     <script src="scripts/controllers/routes.js"></script>
   </body>
