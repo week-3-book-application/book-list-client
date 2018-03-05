@@ -17,13 +17,19 @@ var app = app || {};
       let passcode = e.target.passcode.value;
 
       $.get(`${__API_URL__}/api/v1/admin`, {passcode})
-        .then(console.log);
+        .then(result => adminView.verify(result));
     });
 
   };
 
-  adminView.verify = () => {
-    // validate passphrase, if valid show admin only part of app
+  adminView.verify = (result) => {
+    if (result === true) {
+      $('.admin-view').hide();
+      $('#update').show();
+      $('#delete').show();
+    } else {
+      page('/');
+    }
   };
 
 
