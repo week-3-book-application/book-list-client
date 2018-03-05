@@ -6,6 +6,7 @@ var app = app || {};
   const bookView = {};
 
   bookView.initIndexPage = () => {
+    $('#nav-ul li').slideUp(350);
     $('.container').hide();
     $('#book-list').empty();
     $('#book-count').empty();
@@ -28,12 +29,19 @@ var app = app || {};
   };
 
   bookView.initFormView = () => {
+    $('#nav-ul li').slideUp(350);
+    $('#book-title').val('');
+    $('#book-author').val('');
+    $('#book-isbn').val('');
+    $('#book-url').val('');
+    $('#book-description').val('');
     $('.container').hide();
     $('.form-view').fadeIn(750);
     $('#new-book-form').on('submit', bookView.submit);
   };
 
   bookView.initUpdateForm = (ctx) => {
+    $('#nav-ul li').slideUp(350);
     $('.detail-view').empty();
     $('.container').hide();
     $('.form-view').show();
